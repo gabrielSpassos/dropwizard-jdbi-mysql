@@ -1,6 +1,5 @@
 package gabrielspassos;
 
-import gabrielspassos.model.PessoaModel;
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;

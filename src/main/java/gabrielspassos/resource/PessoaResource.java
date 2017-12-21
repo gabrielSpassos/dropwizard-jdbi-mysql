@@ -7,6 +7,7 @@ import gabrielspassos.repository.PessoaDAO;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 
 @Path("/pessoas")
@@ -38,8 +39,12 @@ public class PessoaResource {
     @Path("/{id}")
     public PessoaModel pegar(@PathParam("id") Integer id){
         PessoaModel pessoaModel = pessoaDAO.encontrarPessoaPeloId(id);
-        System.out.println("AQUI!!!!!!!!!!!!"+pessoaModel.getNome() + pessoaModel.getId()+"\n\n\n");
         return pessoaModel;
+    }
+
+    @GET
+    public List<PessoaModel> pegarTodas(){
+        return pessoaDAO.encontrarPessoa();
     }
 
     /*
@@ -53,4 +58,5 @@ public class PessoaResource {
         return pessoaAlterada;
     }
     */
+
 }
