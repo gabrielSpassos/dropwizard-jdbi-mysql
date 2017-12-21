@@ -1,5 +1,6 @@
 package gabrielspassos.resource;
 
+import com.google.inject.Inject;
 import gabrielspassos.model.PessoaModel;
 import gabrielspassos.repository.PessoaDAO;
 
@@ -17,7 +18,7 @@ public class PessoaResource {
 
     PessoaDAO pessoaDAO;
 
-
+    @Inject
     public PessoaResource(PessoaDAO pessoaDAO) {
         this.pessoaDAO = pessoaDAO;
     }
@@ -46,17 +47,5 @@ public class PessoaResource {
     public List<PessoaModel> pegarTodas(){
         return pessoaDAO.encontrarPessoa();
     }
-
-    /*
-    @PUT
-    @PathParam("/{id}")
-    public PessoaModel update(@PathParam("id") Integer id, @Valid PessoaModel pessoaModel){
-        PessoaModel pessoaAlterada = new PessoaModel(id,pessoaModel.getNome());
-
-        pessoaDAO.alterar(pessoaAlterada);
-
-        return pessoaAlterada;
-    }
-    */
 
 }
